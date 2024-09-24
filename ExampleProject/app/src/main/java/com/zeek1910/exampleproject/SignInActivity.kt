@@ -16,10 +16,15 @@ class SignInActivity : AppCompatActivity() {
 
     private lateinit var signInButton: Button
 
+    private lateinit var appSettings: AppSettings
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
+
+        appSettings = AppSettings.getInstance(this)
+
         emailEditText = findViewById(R.id.email)
         passwordEditText = findViewById(R.id.password)
         signInButton = findViewById(R.id.signInButton)
@@ -48,9 +53,10 @@ class SignInActivity : AppCompatActivity() {
             showMessage("Invalid email")
             return
         }
-        if (email == EMAIL && password == PASSWORD) {
+        val user = appSettings.getUser()
+        if (email == user?.email && password == user.password) {
             showMessage("Sign in successful")
-            AppSettings.getInstance(this).isUserLogin = true
+            appSettings.isUserLogin = true
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -61,10 +67,5 @@ class SignInActivity : AppCompatActivity() {
 
     private fun showMessage(message: String){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private companion object {
-        const val EMAIL = "test@test.com"
-        const val PASSWORD = "123456"
     }
 }
