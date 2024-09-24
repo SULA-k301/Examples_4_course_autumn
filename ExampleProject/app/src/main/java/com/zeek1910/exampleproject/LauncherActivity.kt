@@ -6,6 +6,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class LauncherActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,12 +22,15 @@ class LauncherActivity : AppCompatActivity() {
             insets
         }
 
-
-        val pref = AppSettings.getInstance(this)
-        if (pref.isUserLogin) {
-            startActivity(Intent(this, MainActivity::class.java))
-        } else {
-            startActivity(Intent(this, SignInActivity::class.java))
+        lifecycleScope.launch(Dispatchers.IO) {
+            delay(2000)
+            val pref = AppSettings.getInstance(this@LauncherActivity)
+            if (pref.isUserLogin) {
+                startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
+            } else {
+                startActivity(Intent(this@LauncherActivity, SignInActivity::class.java))
+            }
         }
+
     }
 }
