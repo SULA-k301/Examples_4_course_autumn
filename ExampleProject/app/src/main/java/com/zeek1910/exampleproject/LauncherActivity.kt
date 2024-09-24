@@ -2,8 +2,6 @@ package com.zeek1910.exampleproject
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,10 +21,8 @@ class LauncherActivity : AppCompatActivity() {
 
         val pref = AppSettings.getInstance(this)
         if (pref.isUserLogin) {
-            Log.d("LauncherActivity", "User is already logged in")
             startActivity(Intent(this, MainActivity::class.java))
         } else {
-            Log.d("LauncherActivity", "User is not logged in")
             startActivity(Intent(this, SignInActivity::class.java))
         }
     }
