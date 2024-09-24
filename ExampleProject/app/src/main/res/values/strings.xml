@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Example Project</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sub_title">Sign in now to acces your excercises and saved music.</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+</resources>

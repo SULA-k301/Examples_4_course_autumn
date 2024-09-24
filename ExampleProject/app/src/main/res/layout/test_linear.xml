@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:paddingStart="30dp"
+    android:orientation="vertical">
+
+    <View
+        android:padding="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#ff0000" />
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#00ff00" />
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#0000ff" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ff0000" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#00ff00" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#0000ff" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_gravity="center"
+            android:background="#ff0000"
+            android:layout_width="300dp"
+            android:layout_height="300dp"/>
+    </FrameLayout>
+
+</LinearLayout>
