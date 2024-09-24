@@ -22,10 +22,6 @@ class LauncherActivity : AppCompatActivity() {
 
 
         val pref = AppSettings.getInstance(this)
-        if (pref.isFirstRun) {
-            Toast.makeText(this, "First run", Toast.LENGTH_SHORT).show()
-            pref.isFirstRun = false
-        }
         if (pref.isUserLogin) {
             Log.d("LauncherActivity", "User is already logged in")
             startActivity(Intent(this, MainActivity::class.java))

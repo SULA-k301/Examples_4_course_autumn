@@ -9,10 +9,6 @@ class AppSettings private constructor(context: Context) {
         get() = pref.getBoolean(KEY_IS_USER_LOGIN, false)
         set(value) = pref.edit().putBoolean(KEY_IS_USER_LOGIN, value).apply()
 
-    var isFirstRun: Boolean
-        get() = pref.getBoolean(KEY_IS_FIRST_RUN, true)
-        set(value) = pref.edit().putBoolean(KEY_IS_FIRST_RUN, value).apply()
-
     companion object {
         private const val PREF_NAME = "main_pref"
         private const val KEY_IS_USER_LOGIN = "KEY_IS_USER_LOGIN"
