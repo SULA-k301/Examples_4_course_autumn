@@ -1,17 +1,21 @@
 package com.zeek1910.exampleproject
 
-import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.receiveAsFlow
 
 class LauncherActivity : AppCompatActivity() {
+
+    private val viewModel: LauncherViewModel by viewModels{ LauncherViewModel.Factory }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,15 +26,21 @@ class LauncherActivity : AppCompatActivity() {
             insets
         }
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            delay(2000)
-            val pref = AppSettings.getInstance(this@LauncherActivity)
-            if (pref.isUserLogin) {
-                startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
-            } else {
-                startActivity(Intent(this@LauncherActivity, SignInActivity::class.java))
+        viewModel.event
+            .receiveAsFlow()
+            .onEach {
+                when (it) {
+                    is LauncherViewModel.Event.Navigate -> {
+                        startActivity(it.intent)
+                        finish()
+                    }
+                    is LauncherViewModel.Event.ShowError -> {
+                        Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
-        }
+            .launchIn(lifecycleScope)
 
+        viewModel.init()
     }
 }

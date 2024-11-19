@@ -4,4 +4,17 @@
     <string name="sub_title">Sign in now to acces your excercises and saved music.</string>
     <string name="email_hint">Email Address</string>
     <string name="password_hint">Password</string>
+    <string name="onboarding_1_title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</string>
+    <string name="onboarding_1_description">Maecenas sit amet egestas lacus. In vel ex lectus. Proin maximus ullamcorper felis et efficitur. Aenean eleifend ultrices luctus. Integer nulla urna, pharetra in maximus et, maximus at tortor.</string>
+    <string name="onboarding_2_title">Cras non diam eu risus fermentum sollicitudin</string>
+    <string name="onboarding_2_description">Vivamus vehicula, purus ac eleifend rhoncus, nulla diam dapibus nunc, a ornare quam turpis et erat. Morbi sollicitudin ante quam, sed ultricies nulla iaculis sed. Phasellus eu viverra ipsum, non porta tortor.</string>
+    <string name="onboarding_3_title">Mauris viverra sed purus et congue</string>
+    <string name="onboarding_3_description">Nullam eu urna lacinia ex varius hendrerit. Nulla venenatis leo ex, pretium ullamcorper sem finibus in. Vestibulum nec metus varius, varius risus eget, viverra urna.</string>
+    <string name="onboarding_4_title">Ut eget lectus sit amet purus tristique commodo</string>
+    <string name="onboarding_4_description">Fusce quis odio neque. Morbi leo purus, congue et lorem at, commodo vehicula massa. Donec ut finibus augue, ut vehicula ex. Vestibulum risus mauris, facilisis nec arcu sed, pellentesque molestie mi.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="chats">Chats</string>
+    <string name="profile">Profile</string>
 </resources>

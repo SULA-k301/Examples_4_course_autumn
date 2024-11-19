@@ -9,6 +9,10 @@ class AppSettings private constructor(context: Context) {
         get() = pref.getBoolean(KEY_IS_USER_LOGIN, false)
         set(value) = pref.edit().putBoolean(KEY_IS_USER_LOGIN, value).apply()
 
+    var isFirstStart: Boolean
+        get() = pref.getBoolean(KEY_IS_FIRST_START, true)
+        set(value) = pref.edit().putBoolean(KEY_IS_FIRST_START, value).apply()
+
     fun createUser(name: String, email: String, password: String) {
         pref.edit().putString(KEY_USER_NAME, name).apply()
         pref.edit().putString(KEY_USER_EMAIL, email).apply()
@@ -25,6 +29,7 @@ class AppSettings private constructor(context: Context) {
     companion object {
         private const val PREF_NAME = "main_pref"
         private const val KEY_IS_USER_LOGIN = "KEY_IS_USER_LOGIN"
+        private const val KEY_IS_FIRST_START = "KEY_IS_FIRST_START"
         private const val KEY_USER_NAME = "KEY_USER_NAME"
         private const val KEY_USER_EMAIL = "KEY_USER_EMAIL"
         private const val KEY_USER_PASSWORD = "KEY_USER_PASSWORD"

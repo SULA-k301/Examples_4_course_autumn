@@ -45,24 +45,27 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun signIn(email: String, password: String) {
-        if (email.isEmpty() || password.isEmpty()) {
-            showMessage("Please fill in all fields")
-            return
-        }
-        if (!email.contains("@") && !email.contains(".")) {
-            showMessage("Invalid email")
-            return
-        }
-        val user = appSettings.getUser()
-        if (email == user?.email && password == user.password) {
-            showMessage("Sign in successful")
-            appSettings.isUserLogin = true
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        } else {
-            showMessage("Sign in failed")
-        }
+//        if (email.isEmpty() || password.isEmpty()) {
+//            showMessage("Please fill in all fields")
+//            return
+//        }
+//        if (!email.contains("@") && !email.contains(".")) {
+//            showMessage("Invalid email")
+//            return
+//        }
+//        val user = appSettings.getUser()
+//        if (email == user?.email && password == user.password) {
+//            showMessage("Sign in successful")
+//            appSettings.isUserLogin = true
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        } else {
+//            showMessage("Sign in failed")
+//        }
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun showMessage(message: String){
